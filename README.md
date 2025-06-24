@@ -1,31 +1,26 @@
-🛠️ Freelancer Job Scraper & Analyzer
+# 🛠️ Freelancer Job Scraper & Analyzer
 
-This project fetches active job listings from Freelancer.com, classifies them using a local LLM (via Ollama), and generates a detailed report of:
+This project fetches active job listings from [Freelancer.com](https://freelancer.com), classifies them using a local LLM (via [Ollama](https://ollama.com)), and generates a detailed report of:
 
-🧠 Data Science jobs
+- 🧠 Data Science jobs  
+- 🤖 Simple automatable jobs (like data entry, PDF to CSV, etc.)
 
-🤖 Simple automatable jobs (like data entry, PDF to CSV, etc.)
+## ✅ Features
 
-✅ Features
+- **Keyword-based job scraping** from Freelancer.com API
+- **AI-driven classification** of job type:  
+  - `Data Scientist Job`  
+  - `Simple Automatable Job`  
+  - `Not Relevant`
+- **LLM-generated action plan** for each relevant job
+- Exports results to an **Excel report**
+- Fully modular and easily extendable
 
-Keyword-based job scraping from Freelancer.com API
+---
 
-AI-driven classification of job type:
+## 📁 File Structure
 
-Data Scientist Job
-
-Simple Automatable Job
-
-Not Relevant
-
-LLM-generated action plan for each relevant job
-
-Exports results to an Excel report
-
-Fully modular and easily extendable
-
-📁 File Structure
-
+```
 freelancer_scraper/
 ├── main.py              # Entry point
 ├── config.py            # Constants like keywords and model name
@@ -36,82 +31,85 @@ freelancer_scraper/
 ├── llm.py               # LLM interface via ChatOllama
 ├── requirements.txt     # Python dependencies
 └── README.md
+```
 
-🚀 Getting Started
+---
 
-1. 🧱 Prerequisites
+## 🚀 Getting Started
 
-Python 3.8+
+### 1. 🧱 Prerequisites
 
-Ollama installed and running with a model like llama3
+- Python 3.8+
+- [Ollama installed](https://ollama.com/download) and running with a model like `llama3`
+- `llama3` pulled via Ollama:
 
-llama3 pulled via Ollama:
-
+```bash
 ollama pull llama3
+```
 
-2. 📦 Install Python Dependencies
+### 2. 📦 Install Python Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-▶️ Usage
+---
+
+## ▶️ Usage
 
 Run the tool:
 
+```bash
 python main.py
+```
 
-After a few seconds, you will get an Excel report like:
+After a few seconds, you'll get an Excel report like:
 
+```
 freelancer_leads_20250624_1032.xlsx
+```
 
 The report includes:
+- Job Title
+- Job Type
+- Match Score
+- Budget
+- Post Date
+- LLM-Generated Plan
+- Job URL
 
-Job Title
+---
 
-Job Type
-
-Match Score
-
-Budget
-
-Post Date
-
-LLM-Generated Plan
-
-Job URL
-
-⚙️ Configuration
+## ⚙️ Configuration
 
 You can customize:
 
-SEARCH_KEYWORDS: In config.py — add or remove skill terms
+- `SEARCH_KEYWORDS`: In `config.py` — add or remove skill terms
+- `MAX_RESULTS`: Number of jobs to fetch
+- `OLLAMA_MODEL`: Change to another local model if needed
 
-MAX_RESULTS: Number of jobs to fetch
+---
 
-OLLAMA_MODEL: Change to another local model if needed
+## 🧠 Example Job Classifications
 
-🧠 Example Job Classifications
+| Title                              | Job Type               |
+|------------------------------------|------------------------|
+| "Data scientist for churn model"   | Data Scientist Job     |
+| "Copy paste names into Excel"      | Simple Automatable Job |
+| "Design marketing banners"         | Not Relevant           |
 
-Title
+---
 
-Job Type
+## 📌 Notes
 
-"Copy paste names into Excel"
+- Uses **local models** via Ollama; no OpenAI API keys needed.
+- Designed to be **LLM-agnostic** — just adjust `llm.py` if using another interface.
+- Safe to run periodically to find freelance leads.
 
-Simple Automatable Job
+---
 
-"Design marketing banners"
+## 📬 Contact
 
-Not Relevant
-
-📌 Notes
-
-Uses local models via Ollama
-
-Designed to be LLM-agnostic — just adjust llm.py if using another interface.
-
-Safe to run periodically to find freelance leads.
-
-📮 Contact
-
-Maintained by: Brian
+Maintained by: **Brian**  
 Feel free to suggest improvements or contribute.
+
